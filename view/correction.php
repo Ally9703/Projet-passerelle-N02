@@ -14,7 +14,7 @@
 
     <!-- cusom css file link  -->
     <link rel="stylesheet" href="public/design/css/style.css">
-    <link rel="stylesheet" href="pulic/design/css/responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 <body>
@@ -23,7 +23,7 @@
 
 <header class="header">
     
-    <a href="index.html" class="logo"> <i class=""></i>Alliance</a>
+    <a href="index.html" class="logo"> <i class="fas fa-store"></i> Kdm-Business</a>
 
     <form action="" class="search-form">
         <input type="search" id="search-box" placeholder="Recherche...">
@@ -31,11 +31,11 @@
     </form>
 
     <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
         <div id="search-btn" class="fas fa-search"></div>
         <a href="login.html" class="fas fa-user"></a>
-        <!-- <a href="#" class="fas fa-heart"></a> -->
-        <!-- <a href="cart.html" class="fas fa-shopping-cart"></a> -->
-        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="cart.html" class="fas fa-shopping-cart"></a>
     </div>
 
 </header>
@@ -153,8 +153,6 @@
     </div>
 
 </section>
-
-<?=$content?>
 
 <!-- banner section ends -->
 
@@ -300,7 +298,7 @@
 
 <section class="quick-links">
 
-    <a href="index.html" class="logo"> <i class=""></i>Alliance</a>
+    <a href="index.html" class="logo"> <i class="fas fa-store"></i> Kdm </a>
 
     <div class="links">
         <a href="home.html"> accueil </a>
@@ -338,7 +336,7 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="vendor/javascript/script.js"></script>
+<script src="js/scipt.js"></script>
 
 </body>
 </html>
