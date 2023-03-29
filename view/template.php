@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title><?= $title ?></title>
-        <link rel="stylesheet" href="public/design/style.css" />
+        <link rel="stylesheet" href="public/design/css/style.css" />
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -28,8 +28,8 @@
                 <div id="menu-btn" class="fas fa-bars"></div>
                 <div id="search-btn" class="fas fa-search"></div>
                 <a href="login.html" class="fas fa-user"></a>
-                <a href="#" class="fas fa-heart"></a>
-                <a href="cart.html" class="fas fa-shopping-cart"></a>
+                <a href="#" class="conect">Inscription</a>
+                <a href="" class="conect">Connexion</a>
             </div>
 
         </header>
