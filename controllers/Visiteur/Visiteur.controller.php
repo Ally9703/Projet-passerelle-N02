@@ -24,8 +24,18 @@ class VisiteurController extends MainController{
         $data_page = [
             "page_description" => "Description de la page d'accueil",
             "page_title" => "Titre de la page d'accueil",
-            "utilisateur" => "$utilisateurs",
+            "utilisateurs" => "$utilisateurs",
             "view" => "views/Visiteur/accueil.view.php",
+            "template" => "views/common/template.php"
+        ];
+        $this->genererPage($data_page);
+    }
+
+    public function login(){
+        $data_page = [
+            "page_description" => "Page de connexion",
+            "page_title" => "Page de connexion",
+            "view" => "views/Visiteur/login.view.php",
             "template" => "views/common/template.php"
         ];
         $this->genererPage($data_page);
