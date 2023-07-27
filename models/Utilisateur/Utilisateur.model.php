@@ -33,4 +33,14 @@ class UtilisateurManager extends MainManager{
         return ((int)$resultat['est_valide'] === 1 ) ? true:false;
     
     }
+
+    public function getUserInformation($login){
+        $req = "SELECT * FROM utilisateur WHERE login = :login";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":login",$login,PDO::PARAM_STR);
+        $stmt->execute();
+        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $resultat;
+    }
 }

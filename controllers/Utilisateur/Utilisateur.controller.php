@@ -37,6 +37,20 @@ class UtilisateurController extends MainController{
         }
 
     }
+    
+    public function profil(){
+        $datas = $this->utilisateurManager->getUserInformation($_SESSION['profil']['login']);
+        $_SESSION['profil']["role"] = $datas['role'];
+        
+        $data_page = [
+            "page_description" => "Page de profil",
+            "page_title" => "Page de profil",
+            "utilisateur" => $datas,
+            "view" => "views/Utilisateur/profil.view.php",
+            "template" => "views/common/template.php"
+        ];
+        $this->genererPage($data_page);
+    }
 
 
     // Appel de la page d'erreur pour l'héritage
