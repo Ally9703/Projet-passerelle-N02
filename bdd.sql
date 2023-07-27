@@ -1,0 +1,3 @@
+CREATE TABLE `gestioncompte`.`utilisateur` (`login` VARCHAR(50) NOT NULL , `password` VARCHAR(100) NOT NULL , `mail` VARCHAR(100) NOT NULL , `role` VARCHAR(50) NOT NULL , `image` VARCHAR(100) NOT NULL , `est_valide` BOOLEAN NOT NULL , `clef` INT NOT NULL , PRIMARY KEY (`login`)) ENGINE = InnoDB;
+
+INSERT INTO `utilisateur` (`login`, `password`, `mail`, `role`, `image`, `est_valide`, `clef`) VALUES ('test', '$2y$10$UMMFvdtsT3dHhAcVZKInGe9VOy4YsyHPq9bYHNtDmpZuNyIlk6NfG', 'test@test.fr', 'administrateut', '', '1', '');

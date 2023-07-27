@@ -8,6 +8,7 @@ class VisiteurController extends MainController{
     // Fonction Acceuil pour gérer tout ce qui est page d'acceuil
     public function accueil(){
 
+        echo password_hash("test", PASSWORD_DEFAULT);
         $data_page = [
             "page_description" => "Description de la page d'accueil",
             "page_title" => "Titre de la page d'accueil",
