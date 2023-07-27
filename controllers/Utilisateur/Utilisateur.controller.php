@@ -18,7 +18,7 @@ class UtilisateurController extends MainController{
         // Vérifier si le compte est activé
         if($this->utilisateurManager->isCombinaisonValide($login, $password)){
             if ($this->utilisateurManager->estCompteActive($login)) {
-                Toolbox::ajouterMessageAlerte("Bon retour sur le site" .$login. "!", Toolbox::COULEUR_VERTE);
+                Toolbox::ajouterMessageAlerte("Bon retour sur le site " .$login. "!", Toolbox::COULEUR_VERTE);
                 $_SESSION['profil'] = [
                     "login" => $login
                 ];
