@@ -1,4 +1,1 @@
-<h1>Coucou</h1>
-<?php foreach ($utilisateurs as $utilisateur) {
-   echo $utilisateur['login']. " - " . $utilisateur["mail"];
-} ?>
+<h1>Page d'acceuil</h1>

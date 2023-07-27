@@ -3,4 +3,4 @@
     Mail : <?= $utilisateur['mail'] ?>
 </div>
 
-<?= $_SESSION['profil']['role']?>
+<!-- <?= $_SESSION['profil']['role']?> -->

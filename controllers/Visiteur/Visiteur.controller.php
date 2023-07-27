@@ -15,16 +15,12 @@ class VisiteurController extends MainController{
     // Fonction Acceuil pour gérer tout ce qui est page d'acceuil
     public function accueil(){
 
-        // echo password_hash("test", PASSWORD_DEFAULT);
-        $utilisateurs = $this->visiteurManager->getUtilisateurs();
-
         /* Tableau des views transmis à la fonction genererPage,
          pour être afficher par la view correspondante
        */
       $data_page = [
         "page_description" => "Description de la page d'accueil",
         "page_title" => "Titre de la page d'accueil",
-        "utilisateurs" => $utilisateurs,
         "view" => "views/Visiteur/accueil.view.php",
         "template" => "views/common/template.php"
     ];
