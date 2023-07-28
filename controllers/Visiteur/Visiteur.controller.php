@@ -37,6 +37,16 @@ class VisiteurController extends MainController{
         $this->genererPage($data_page);
     }
 
+    public function creerCompte(){
+        $data_page = [
+            "page_description" => "Page de création de compte",
+            "page_title" => "Page de création de compte",
+            "view" => "views/Visiteur/creerCompte.view.php",
+            "template" => "views/common/template.php"
+        ];
+        $this->genererPage($data_page);
+    }
+
 
     // Appel de la page d'erreur pour l'héritage
     public function pageErreur($msg){

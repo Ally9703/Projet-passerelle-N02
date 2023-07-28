@@ -42,8 +42,17 @@ try {
                 Toolbox::ajouterMessageAlerte("Email ou mot de passe non renseigné",Toolbox::COULEUR_ROUGE);
                 header('Location: '. URL."login");
             }
-            // echo $_POST["login"]. " _ " . $_POST["password"];
         break;
+
+        // Création du compte
+        case "creerCompte": $visiteurController->creerCompte();
+        break;
+
+        // Validation du compte
+        case "validation_creerCompte": echo "test"; 
+        break;
+
+        // compte de l'utilisateur
         case "compte" : 
             if(!Securite::estConnecte()){
                 Toolbox::ajouterMessageAlerte("Veillez vous connecter !", Toolbox::COULEUR_ROUGE);
