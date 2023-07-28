@@ -52,6 +52,23 @@ class UtilisateurController extends MainController{
         $this->genererPage($data_page);
     }
 
+    // Faire des vérifcations si les informations données ne sont pas déjà dans la bdd
+    public function validation_creerCompte($login,$password,$mail){
+        if($this->utilisateurManager->verifLoginDisponible($login)){
+            $passwordCrypte = password_hash($password,PASSWORD_DEFAULT);
+            $clef = rand(0,9999);
+            if($this->utilisateurManager->bdCreerCompte($login,$passwordCrypte,$mail,$clef)){
+                Toolbox::ajouterMessageAlerte("La compte a été créé, Un mail de validation vous a été envoyé !", Toolbox::COULEUR_VERTE);
+                header("Location: ".URL."login");
+            } else {
+                Toolbox::ajouterMessageAlerte("Erreur lors de la création du compte, recommencez !", Toolbox::COULEUR_ROUGE);
+                header("Location: ".URL."creerCompte");
+            }
+        } else {
+            Toolbox::ajouterMessageAlerte("Le login est déjà utilisé !", Toolbox::COULEUR_ROUGE);
+            header("Location: ".URL."creerCompte");
+        }
+    }
     public function deconnexion(){
 
         Toolbox::ajouterMessageAlerte("La déconnexion est effectuée", Toolbox::COULEUR_VERTE);

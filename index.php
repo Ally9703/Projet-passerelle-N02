@@ -49,7 +49,16 @@ try {
         break;
 
         // Validation du compte
-        case "validation_creerCompte": echo "test"; 
+        case "validation_creerCompte":
+            if(!empty($_POST["login"]) && !empty($_POST["mail"]) && !empty($_POST["password"])){
+                $login = Securite::secureHTML($_POST["login"]);
+                $mail = Securite::secureHTML($_POST["mail"]);
+                $password = Securite::secureHTML($_POST["password"]);
+                $utilisateurController->validation_creerCompte($login,$mail,$password);
+            }else{
+                Toolbox::ajouterMessageAlerte("Les trois informations sont obligatoires !", Toolbox::COULEUR_ROUGE);
+                header("Location: ".URL. "creerCompte");
+            }
         break;
 
         // compte de l'utilisateur
