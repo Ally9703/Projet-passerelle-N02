@@ -60,7 +60,9 @@ try {
                 header("Location: ".URL. "creerCompte");
             }
         break;
-
+        case "renvoyerMailValidation" : $utilisateurController->renvoyerMailValidation($url[1]);
+        break;
+        case "validationMail" : echo "test";
         // compte de l'utilisateur
         case "compte" : 
             if(!Securite::estConnecte()){

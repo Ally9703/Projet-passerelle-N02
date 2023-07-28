@@ -58,6 +58,7 @@ class UtilisateurController extends MainController{
             $passwordCrypte = password_hash($password,PASSWORD_DEFAULT);
             $clef = rand(0,9999);
             if($this->utilisateurManager->bdCreerCompte($login,$passwordCrypte,$mail,$clef)){
+                $this->sendMailValidation($login,$mail,$clef);
                 Toolbox::ajouterMessageAlerte("La compte a été créé, Un mail de validation vous a été envoyé !", Toolbox::COULEUR_VERTE);
                 header("Location: ".URL."login");
             } else {
@@ -69,6 +70,20 @@ class UtilisateurController extends MainController{
             header("Location: ".URL."creerCompte");
         }
     }
+
+    private function sendMailValidation($login,$mail,$clef){
+        $urlVerification = URL."validationMail/".$login."/".$clef;
+        $sujet = "Création du compte sur le site xxx";
+        $message = "Pour valider votre compte veuillez cliquer sur le lien suivant ".$urlVerification;
+        Toolbox::sendMail($mail,$sujet,$message);
+    }
+
+    public function renvoyerMailValidation($login){
+        $utilisateur = $this->utilisateurManager->getUserInformation($login);
+        $this->sendMailValidation($login,$utilisateur['mail'],$utilisateur['clef']);
+        header("Location: ".URL."login");
+    }
+
     public function deconnexion(){
 
         Toolbox::ajouterMessageAlerte("La déconnexion est effectuée", Toolbox::COULEUR_VERTE);
