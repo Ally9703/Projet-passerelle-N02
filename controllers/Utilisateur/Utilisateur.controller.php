@@ -46,6 +46,7 @@ class UtilisateurController extends MainController{
             "page_description" => "Page de profil",
             "page_title" => "Page de profil",
             "utilisateur" => $datas,
+            "page_javascript" => ['profil.js'],
             "view" => "views/Utilisateur/profil.view.php",
             "template" => "views/common/template.php"
         ];
@@ -82,6 +83,20 @@ class UtilisateurController extends MainController{
         $utilisateur = $this->utilisateurManager->getUserInformation($login);
         $this->sendMailValidation($login,$utilisateur['mail'],$utilisateur['clef']);
         header("Location: ".URL."login");
+    }
+
+    public function validation_mailCompte($login,$clef){
+        if($this->utilisateurManager->bdValidationMailCompte($login,$clef)){
+            Toolbox::ajouterMessageAlerte("Le compte a été activé !", Toolbox::COULEUR_VERTE);
+            // Redirection de l'utilisateur sur la page de profil
+            $_SESSION['profil'] = [
+                "login" => $login,
+            ];
+            header('Location: '.URL.'compte/profil');
+        } else {
+            Toolbox::ajouterMessageAlerte("Le compte n'a pas été activé !", Toolbox::COULEUR_ROUGE);
+            header('Location: '.URL.'creerCompte');
+        }
     }
 
     public function deconnexion(){
