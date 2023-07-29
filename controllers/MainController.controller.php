@@ -1,13 +1,7 @@
 <?php
-// require_once("models/MainManager.model.php");
 require_once("controllers/Toolbox.class.php");
 
 abstract class MainController{
-    // private $mainManager;
-
-    // public function __construct(){
-    //     $this->mainManager = new MainManager();
-    // }
 
     protected function genererPage($data){
         extract($data);
@@ -17,8 +11,6 @@ abstract class MainController{
         require_once($template);
     }
 
-
-      // Fonction PageErreur pour gérer tout ce que est des Erreurs
     protected function pageErreur($msg){
         $data_page = [
             "page_description" => "Page permettant de gérer les erreurs",

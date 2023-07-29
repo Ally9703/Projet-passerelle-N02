@@ -1,5 +1,3 @@
-
-# Ici dans c'est fichier permet de rendre notre nos liens dynamique
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f

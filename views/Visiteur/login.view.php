@@ -1,5 +1,5 @@
 <h1>Page de connexion</h1>
-<form method="POST" action="validation_login">
+<form method="POST" action="<?= URL ?>validation_login">
     <div class="mb-3">
         <label for="login" class="form-label">Login</label>
         <input type="text" class="form-control" id="login" name="login" required>

@@ -8,3 +8,7 @@ btnModifMail.addEventListener("click", function(){
     divModificationMail.classList.remove("d-none");
 })
 
+document.querySelector("#btnSupCompte").addEventListener("click", function(){
+    console.log("test");
+    document.querySelector("#suppressionCompte").classList.remove("d-none");
+})
