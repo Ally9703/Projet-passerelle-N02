@@ -20,4 +20,6 @@ class AdministrateurManager extends MainManager{
         $stmt->closeCursor();
         return $estModifier;
     }
+
+    
 }

@@ -1,8 +1,12 @@
 <?php
+
+// Importation des autres fichiers
 require_once("./controllers/MainController.controller.php");
 require_once("./models/Visiteur/Visiteur.model.php");
 require_once("./controllers/Securite.class.php");
 
+
+// Classe VisiteurController  pour la gestion des visiteurs
 class VisiteurController extends MainController{
     private $visiteurManager;
 
@@ -10,13 +14,21 @@ class VisiteurController extends MainController{
         $this->visiteurManager = new VisiteurManager();
     }
   
+    // Fonction Acceuil pour gérer tout ce qui est page d'acceuil
     public function accueil(){
         
+        /* Tableau des views transmis à la fonction genererPage,
+         pour être afficher par la view correspondante
+        */
+        
         $data_page = [
+
             "page_description" => "Description de la page d'accueil",
-            "page_title" => "Titre de la page d'accueil",
-            "view" => "views/Visiteur/accueil.view.php",
-            "template" => "views/common/template.php"
+            "page_title"       => "Titre de la page d'accueil",
+            "page_css"          => ['pulic/CSS/main'],
+            "page_javascript" => ['script.js'],
+            "view"             => "views/Visiteur/accueil.view.php",
+            "template"         => "views/common/template.php"
         ];
         $this->genererPage($data_page);
     }
@@ -40,6 +52,18 @@ class VisiteurController extends MainController{
         ];
         $this->genererPage($data_page);
     }
+
+    public function article(){
+        
+        $data_page = [
+            "page_description" => "Page articles de blog",
+            "page_title" => "Page articles de blog",
+            "view" => "views/Article/arti.view.php",
+            "template" => "views/common/template.php"
+        ];
+        $this->genererPage($data_page);
+    }
+
 
     public function pageErreur($msg){
         parent::pageErreur($msg);

@@ -12,7 +12,7 @@ class Toolbox {
     }
 
     public static function sendMail($destinataire, $sujet, $message){
-        $headers = "From: xxxxx@gmail.com";
+        $headers = "From: allysthindayi96@gmail.com";
         if(mail($destinataire,$sujet,$message,$headers)){
             self::ajouterMessageAlerte("Mail envoyé", self::COULEUR_VERTE);
         } else {

@@ -1,7 +1,8 @@
-<div class="text-center">
+<div class="" class="profil">
     <h1>Profil de <?= $utilisateur['login'] ?></h1>
+    
     <div>
-        <div>
+        <div class="text-center">
             <img src="<?= URL; ?>public/Assets/images/<?= $utilisateur['image'] ?>" width="100px" alt="photo de profil" />
         </div>
         <form method="POST" action="<?= URL ?>compte/validation_modificationImage" enctype="multipart/form-data">
@@ -9,6 +10,7 @@
             <input type="file" class="form-control-file" id="image" name="image" onchange="submit();" />
         </form>
     </div>
+
     <div id="mail">
         Mail : <?= $utilisateur['mail'] ?>
         <button class="btn btn-primary" id="btnModifMail">

@@ -3,7 +3,7 @@
         <div class="row">
         <div class="col-12 col-md">
         <img src="<?= URL; ?>public/Assets/images/logo.png" width="40" alt="logo du site" />
-            <small class="d-block mb-3 text-muted">&copy; 2017–2021</small>
+            <small class="d-block mb-3 text-muted">&copy; 2023</small>
         </div>
         <div class="col-6 col-md">
             <h5>Features</h5>

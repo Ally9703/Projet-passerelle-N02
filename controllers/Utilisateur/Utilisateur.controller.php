@@ -2,6 +2,7 @@
 require_once("./controllers/MainController.controller.php");
 require_once("./models/Utilisateur/Utilisateur.model.php");
 
+// Classe VisiteurController  pour la gestion des utilisateur
 class UtilisateurController extends MainController{
     private $utilisateurManager;
 
@@ -9,6 +10,7 @@ class UtilisateurController extends MainController{
         $this->utilisateurManager = new UtilisateurManager();
     }
 
+     // Vérifier si le compte est activé
     public function validation_login($login,$password){
         if($this->utilisateurManager->isCombinaisonValide($login,$password)){
             if($this->utilisateurManager->estCompteActive($login)){
@@ -23,6 +25,8 @@ class UtilisateurController extends MainController{
 
                 header("location: ".URL."compte/profil");
             } else {
+
+                 // Renvoyer le mail de validation
                 $msg = "Le compte ".$login. " n'a pas été activé par mail. ";
                 $msg .= "<a href='renvoyerMailValidation/".$login."'>Renvoyez le mail de validation</a>";
                 Toolbox::ajouterMessageAlerte($msg, Toolbox::COULEUR_ROUGE);
@@ -33,6 +37,8 @@ class UtilisateurController extends MainController{
             header("Location: ".URL."login");
         }
     }
+
+    // Fonction de la gestion du profile de l'utilisateur
     public function profil(){
         $datas = $this->utilisateurManager->getUserInformation($_SESSION['profil']['login']);
         $_SESSION['profil']["role"] = $datas['role'];
@@ -47,12 +53,8 @@ class UtilisateurController extends MainController{
         ];
         $this->genererPage($data_page);
     }
-    public function deconnexion(){
-        Toolbox::ajouterMessageAlerte("La deconnexion est effectuée",Toolbox::COULEUR_VERTE);
-        unset($_SESSION['profil']);
-        setcookie(Securite::COOKIE_NAME,"",time() - 3600);
-        header("Location: ".URL."accueil");
-    }
+    
+    // Faire des vérifcations si les informations données ne sont pas déjà dans la bdd
     public function validation_creerCompte($login,$password,$mail){
         if($this->utilisateurManager->verifLoginDisponible($login)){
             $passwordCrypte = password_hash($password,PASSWORD_DEFAULT);
@@ -71,6 +73,7 @@ class UtilisateurController extends MainController{
         }
     }
 
+    // Envoie de mail de validation 
     private function sendMailValidation($login,$mail,$clef){
         $urlVerification = URL."validationMail/".$login."/".$clef;
         $sujet = "Création du compte sur le site xxx";
@@ -78,12 +81,14 @@ class UtilisateurController extends MainController{
         Toolbox::sendMail($mail,$sujet,$message);
     }
 
+    // Renoyer le mail de validation au cas ou le mail n'a pas envoyer
     public function renvoyerMailValidation($login){
         $utilisateur = $this->utilisateurManager->getUserInformation($login);
         $this->sendMailValidation($login,$utilisateur['mail'],$utilisateur['clef']);
         header("Location: ".URL."login");
     }
 
+    // Validation du compte par mail
     public function validation_mailCompte($login,$clef){
         if($this->utilisateurManager->bdValidationMailCompte($login,$clef)){
             Toolbox::ajouterMessageAlerte("Le compte a été activé !", Toolbox::COULEUR_VERTE);
@@ -97,6 +102,7 @@ class UtilisateurController extends MainController{
         }
     }
 
+    // Validation de modification de mail 
     public function validation_modificationMail($mail){
         if($this->utilisateurManager->bdModificationMailUser($_SESSION['profil']['login'],$mail)){
             Toolbox::ajouterMessageAlerte("La modification est effectuée", Toolbox::COULEUR_VERTE);
@@ -106,6 +112,7 @@ class UtilisateurController extends MainController{
         header("Location: ".URL."compte/profil");
     }
 
+    // Modification du mot de passe
     public function modificationPassword(){
         $data_page = [
             "page_description" => "Page de modification du password",
@@ -116,6 +123,8 @@ class UtilisateurController extends MainController{
         ];
         $this->genererPage($data_page);
     }
+
+     // Validation de modification du mot de passe
     public function validation_modificationPassword($ancienPassword,$nouveauPassword,$confirmationNouveauPassword){
         if($nouveauPassword === $confirmationNouveauPassword){
             if($this->utilisateurManager->isCombinaisonValide($_SESSION['profil']['login'],$ancienPassword)){
@@ -137,6 +146,7 @@ class UtilisateurController extends MainController{
         }
     }
 
+     // Fonction pour la supression de compte 
     public function suppressionCompte(){
         $this->dossierSuppressionImageUtilisateur($_SESSION['profil']['login']);
         rmdir("public/Assets/images/profils/".$_SESSION['profil']['login']);
@@ -150,6 +160,7 @@ class UtilisateurController extends MainController{
         }
     }
 
+     // Validation de modification de l'image
     public function validation_modificationImage($file){
         try{
             $repertoire = "public/Assets/images/profils/".$_SESSION['profil']['login']."/";
@@ -170,6 +181,7 @@ class UtilisateurController extends MainController{
         header("Location: ".URL."compte/profil");
     }
 
+     // Supreseion de l'image de l'utilisateur
     private function dossierSuppressionImageUtilisateur($login){
         $ancienneImage = $this->utilisateurManager->getImageUtilisateur($_SESSION['profil']['login']);
         if($ancienneImage !== "profils/profil.png"){
@@ -177,6 +189,15 @@ class UtilisateurController extends MainController{
         }
     }
 
+    // Fonction se deconnecter 
+    public function deconnexion(){
+        Toolbox::ajouterMessageAlerte("La deconnexion est effectuée",Toolbox::COULEUR_VERTE);
+        unset($_SESSION['profil']);
+        setcookie(Securite::COOKIE_NAME,"",time() - 3600);
+        header("Location: ".URL."accueil");
+    }
+
+    // fonction qui capte les erreurs
     public function pageErreur($msg){
         parent::pageErreur($msg);
     }
