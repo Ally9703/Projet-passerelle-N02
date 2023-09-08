@@ -15,12 +15,11 @@ class VisiteurController extends MainController{
     }
   
     // Fonction Acceuil pour gérer tout ce qui est page d'acceuil
-    public function accueil(){
-        
-        /* Tableau des views transmis à la fonction genererPage,
-         pour être afficher par la view correspondante
-        */
-        
+    public function accueil(){ 
+        /* 
+            Tableau des views transmis à la fonction genererPage,
+            pour être afficher par la view correspondante
+        */ 
         $data_page = [
 
             "page_description" => "Description de la page d'accueil",
@@ -28,7 +27,7 @@ class VisiteurController extends MainController{
             "page_css"          => ['pulic/CSS/main'],
             "page_javascript" => ['script.js'],
             "view"             => "views/Visiteur/accueil.view.php",
-            "template"         => "views/common/template.php"
+            "template"         => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }
@@ -38,7 +37,7 @@ class VisiteurController extends MainController{
             "page_description" => "Page de connexion",
             "page_title" => "Page de connexion",
             "view" => "views/Visiteur/login.view.php",
-            "template" => "views/common/template.php"
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }
@@ -48,7 +47,7 @@ class VisiteurController extends MainController{
             "page_description" => "Page de création de compte",
             "page_title" => "Page de création de compte",
             "view" => "views/Visiteur/creerCompte.view.php",
-            "template" => "views/common/template.php"
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }
@@ -58,8 +57,8 @@ class VisiteurController extends MainController{
         $data_page = [
             "page_description" => "Page articles de blog",
             "page_title" => "Page articles de blog",
-            "view" => "views/Article/arti.view.php",
-            "template" => "views/common/template.php"
+            "view" => "views/Article/article.view.php",
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }

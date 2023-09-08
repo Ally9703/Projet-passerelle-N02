@@ -3,5 +3,9 @@
   }
 
   body {
-    background-color: red;
+    background-color: rgb(100, 100, 194);
+  }
+
+.non{
+    color: red;
   }

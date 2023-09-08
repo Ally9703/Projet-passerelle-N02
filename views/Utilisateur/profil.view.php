@@ -1,5 +1,5 @@
 <div class="" class="profil">
-    <h1>Profil de <?= $utilisateur['login'] ?></h1>
+    <h1 class="non">Hello <?= $utilisateur['login'] ?> !</h1>
     
     <div>
         <div class="text-center">

@@ -20,7 +20,7 @@ abstract class MainController{
             "page_title" => "Page d'erreur",
             "msg" => $msg,
             "view" => "./views/erreur.view.php",
-            "template" => "views/common/template.php"
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }

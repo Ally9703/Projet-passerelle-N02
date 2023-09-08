@@ -17,7 +17,7 @@ class AdministrateurController extends MainController{
             "page_title" => "Gestion des droits",
             "utilisateurs" => $utilisateurs,
             "view" => "views/Administrateur/droits.view.php",
-            "template" => "views/common/template.php"
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }
@@ -30,6 +30,21 @@ class AdministrateurController extends MainController{
         }
         header("Location: ".URL."administration/droits");
     }
+
+    // Poster les articles 
+    public function portArticle(){
+        $utilisateurs = $this->administrateurManager->getUtilisateurs();
+
+        $data_page = [
+            "page_description" => "Poster un nouveau article",
+            "page_title" => "Gestion des articles",
+            "utilisateurs" => $utilisateurs,
+            "view" => "views/Administrateur/.php",
+            "template" => "views/includes/template.php"
+        ];
+        $this->genererPage($data_page);
+    }
+
 
     public function pageErreur($msg){
         parent::pageErreur($msg);

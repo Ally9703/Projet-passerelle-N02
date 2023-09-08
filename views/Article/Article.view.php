@@ -1,16 +1,19 @@
+<h1>Poster un nouveau article</h1>
+<form method="POST" action="poster_un_article">
+    <div class="mb-3">
+        <label for="titre" class="form-label">Titre</label>
+        <input type="text" class="form-control" id="titre" name="titre" required>
+    </div>
 
-<!-- Exemple de vue pour afficher tous les articles -->
-<?php foreach ($articles as $article): ?>
-    <h2><?php echo $article['titre']; ?></h2>
-    <p><?php echo $article['contenu']; ?></p>
-<?php endforeach; ?>
+    <div class="mb-3">
+        <label for="contenu" class="form-label">Contenu</label>
+        <input type="text" class="form-control" id="contenu" name="contenu" required>
+    </div>
 
-<!-- Exemple de vue pour afficher un article spécifique avec ses commentaires -->
-<h2><?php echo $article['titre']; ?></h2>
-<p><?php echo $article['contenu']; ?></p>
+    <div class="mb-3">
+        <label for="date_creation" class="form-label">Date de publication</label>
+        <input type="date" class="form-control" id="date_creation" name="date_creation" required>
+    </div>
 
-<h3>Commentaires :</h3>
-<?php foreach ($commentaires as $commentaire): ?>
-    <h4><?php echo $commentaire['auteur']; ?></h4>
-    <p><?php echo $commentaire['contenu']; ?></p>
-<?php endforeach; ?>
+    <button type="submit" class="btn btn-primary">Créer !</button>
+</form>

@@ -33,7 +33,7 @@ class UtilisateurController extends MainController{
                 header("Location: ".URL."login");
             }
         } else {
-            Toolbox::ajouterMessageAlerte("Combinaison Login / Mot de passe non valide", Toolbox::COULEUR_ROUGE);
+            Toolbox::ajouterMessageAlerte("Le Login ou le Mot de passe n'est valide", Toolbox::COULEUR_ROUGE);
             header("Location: ".URL."login");
         }
     }
@@ -49,7 +49,7 @@ class UtilisateurController extends MainController{
             "utilisateur" => $datas,
             "page_javascript" => ['profil.js'],
             "view" => "views/Utilisateur/profil.view.php",
-            "template" => "views/common/template.php"
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }
@@ -119,7 +119,7 @@ class UtilisateurController extends MainController{
             "page_title" => "Page de modification du password",
             "page_javascript" => ["modificationPassword.js"],
             "view" => "views/Utilisateur/modificationPassword.view.php",
-            "template" => "views/common/template.php"
+            "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }

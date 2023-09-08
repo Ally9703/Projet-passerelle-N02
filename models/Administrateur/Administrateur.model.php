@@ -10,6 +10,7 @@ class AdministrateurManager extends MainManager{
         return $datas;
     }
 
+    // Gestions de droits utilisateurs
     public function bdModificationRoleUser($login,$role){
         $req = "UPDATE utilisateur set role = :role WHERE login = :login";
         $stmt = $this->getBdd()->prepare($req);

@@ -5,7 +5,7 @@
             <th>Login</th>
             <th>Validé</th>
             <th>Rôle</th>
-        </tr>
+         </tr>
         <?php foreach ($utilisateurs as $utilisateur) : ?>
             <tr>
                 <td><?= $utilisateur['login'] ?></td>

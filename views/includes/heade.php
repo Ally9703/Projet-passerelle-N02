@@ -5,7 +5,7 @@
       <img src="<?= URL; ?>public/Assets/images/logo.png" width="40" alt="logo du site" />
       <span class="ms-5 fs-4">Mon super site</span>
     </a>
-    <?php require_once("views/common/menu.php"); ?> 
+    <?php require_once("views/includes/menu.php"); ?> 
     
   </header>
 </div> -->
