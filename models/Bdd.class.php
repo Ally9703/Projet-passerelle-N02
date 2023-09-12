@@ -1,6 +1,6 @@
 <?php
 
-abstract class Model{
+abstract class Bdd{
     private static $pdo;
 
     private static function setBdd(){
