@@ -32,7 +32,18 @@ class AdministrateurController extends MainController{
     }
 
     // Poster les articles 
-    
+    public function article(){
+        $utilisateurs = $this->administrateurManager->getUtilisateurs();
+
+        $data_page = [
+            "page_description" => "Gestion des articles",
+            "page_title" => "Gestion des articles de blog",
+            "utilisateurs" => $utilisateurs,
+            "view" => "views/Administrateur/article.view.php",
+            "template" => "views/includes/template.php"
+        ];
+        $this->genererPage($data_page);
+    }
 
 
 
