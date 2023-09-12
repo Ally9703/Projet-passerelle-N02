@@ -13,13 +13,13 @@ require_once("./controllers/Securite.class.php");
 require_once("./controllers/Visiteur/Visiteur.controller.php");
 require_once("./controllers/Utilisateur/Utilisateur.controller.php");
 require_once("./controllers/Administrateur/Administrateur.controller.php");
-require_once("./controllers/Article/Article.controller.php");
+// require_once("./controllers/Article/Article.controller.php");
 // require_once("./controllers/Commentaires/Comment.controller.php");
 
 $visiteurController = new VisiteurController();
 $utilisateurController = new UtilisateurController();
 $administrateurController = new AdministrateurController();
-$articleController = new ArticleController();
+// $articleController = new ArticleController();
 // $commentaireController = new CommentaireController();
 
 
@@ -142,25 +142,6 @@ try {
                     case "droits" : $administrateurController->droits();
                     break;
                     case "validation_modificationRole" : $administrateurController->validation_modificationRole($_POST['login'],$_POST['role']);
-                    break;
-                    default : throw new Exception("La page n'existe pas");
-                }
-            }
-        break;
-
-         // Poster Arcticle
-         case "article" :
-            if(!Securite::estConnecte()) {
-                Toolbox::ajouterMessageAlerte("Veuillez vous connecter !",Toolbox::COULEUR_ROUGE);
-                header("Location: ".URL."Login");
-            } elseif(!Securite::estAdministrateur()){
-                Toolbox::ajouterMessageAlerte("Vous devez être Administrateur ",Toolbox::COULEUR_ROUGE);
-                header("Location: ".URL."accueil");
-            } else {
-                switch($url[1]){
-                    case "posterArticle" : $articleController->posterArticle();
-                    break;
-                    case "validation_modificationArticle" : $articleController->validation_modificationArticle($_POST['titre'],$_POST['contenu']);
                     break;
                     default : throw new Exception("La page n'existe pas");
                 }

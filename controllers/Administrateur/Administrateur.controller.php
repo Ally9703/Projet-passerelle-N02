@@ -32,18 +32,8 @@ class AdministrateurController extends MainController{
     }
 
     // Poster les articles 
-    public function portArticle(){
-        $utilisateurs = $this->administrateurManager->getUtilisateurs();
+    
 
-        $data_page = [
-            "page_description" => "Poster un nouveau article",
-            "page_title" => "Gestion des articles",
-            "utilisateurs" => $utilisateurs,
-            "view" => "views/Administrateur/.php",
-            "template" => "views/includes/template.php"
-        ];
-        $this->genererPage($data_page);
-    }
 
 
     public function pageErreur($msg){
