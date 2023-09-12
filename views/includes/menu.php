@@ -46,7 +46,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?= URL; ?>administration/droits">Gérer les droits</a></li>
-                <li><a class="dropdown-item" href="<?= URL; ?>article/posterArticle">Ajouter Un Article</a></li>
+                <li><a class="dropdown-item" href="<?= URL; ?>administration/article">Ajouter Un Article</a></li>
               </ul>
           </li>
         <?php endif; ?>
