@@ -34,10 +34,13 @@ try {
 
     // la page des visiteurs
     switch($page){
-        case "accueil" : $visiteurController->accueil();
+        case "accueil": $visiteurController->accueil();
         break;
-        case "login" : $visiteurController->login();
+        case "login": $visiteurController->login();
         break;
+        case "visite": $visiteurController->visite();
+        break;
+        
 
         // verification de connexion de l'utilisateur
         case "validation_login" : 
@@ -50,6 +53,8 @@ try {
                 header('Location: '.URL."login");
             }
         break;
+
+   
 
         // Création du compte du visiteur
         case "creerCompte" : $visiteurController->creerCompte();
@@ -141,9 +146,11 @@ try {
                 switch($url[1]){
                     case "droits" : $administrateurController->droits();
                     break;
-                    case "article": $administrateurController->article();
-                    break;
                     case "validation_modificationRole" : $administrateurController->validation_modificationRole($_POST['login'],$_POST['role']);
+                    break;
+
+                    // Poster les articles du blog
+                    case "article": $administrateurController->article();
                     break;
                     default : throw new Exception("La page n'existe pas");
                 }

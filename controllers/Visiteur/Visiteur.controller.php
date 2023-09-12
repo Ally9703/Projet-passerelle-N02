@@ -52,16 +52,16 @@ class VisiteurController extends MainController{
         $this->genererPage($data_page);
     }
 
-    public function article(){
-        
+    public function visite(){
         $data_page = [
-            "page_description" => "Page articles de blog",
-            "page_title" => "Page articles de blog",
-            "view" => "views/Article/article.view.php",
+            "page_description" => "Page Article",
+            "page_title" => "Page de création de compte",
+            "view" => "views/Visiteur/visite.view.php",
             "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
     }
+
 
 
     public function pageErreur($msg){

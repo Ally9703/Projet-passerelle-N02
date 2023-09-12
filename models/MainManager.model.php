@@ -1,6 +1,6 @@
 <?php
-require_once("Model.class.php");
+require_once("Bdd.class.php");
 
-abstract class MainManager extends Model{
+abstract class MainManager extends Bdd{
 
 }

@@ -14,6 +14,9 @@
           <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?= URL; ?>accueil">Accueil</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="<?= URL; ?>visite">Article</a>
+          </li>
 
           <!-- L'utilisateur non connecter -->
           <?php if(!Securite::estConnecte()) : ?>
@@ -24,9 +27,7 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?= URL; ?>creerCompte">Créer compte</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="<?= URL; ?>article">Les articles</a>
-          </li>
+          
 
           <!-- L'utilisateur connecter -->
         <?php else : ?>
