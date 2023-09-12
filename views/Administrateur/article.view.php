@@ -1,7 +1,7 @@
 <!--  -->
 
 <h1>Poster un nouveau article</h1>
-<form method="POST" action="poster_un_article">
+<form method="POST" action="./visite">
     <div class="mb-3">
         <label for="titre" class="form-label">Titre</label>
         <input type="text" class="form-control" id="titre" name="titre" required>
