@@ -13,7 +13,7 @@ require_once("./controllers/Securite.class.php");
 require_once("./controllers/Visiteur/Visiteur.controller.php");
 require_once("./controllers/Utilisateur/Utilisateur.controller.php");
 require_once("./controllers/Administrateur/Administrateur.controller.php");
-// require_once("./controllers/Article/Article.controller.php");
+require_once("./controllers/Article/Article.controller.php");
 // require_once("./controllers/Commentaires/Comment.controller.php");
 
 $visiteurController = new VisiteurController();

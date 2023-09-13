@@ -31,7 +31,7 @@ class AdministrateurController extends MainController{
         header("Location: ".URL."administration/droits");
     }
 
-    // Poster les articles 
+    // // Poster les articles 
     public function article(){
         $utilisateurs = $this->administrateurManager->getUtilisateurs();
 
@@ -43,6 +43,24 @@ class AdministrateurController extends MainController{
             "template" => "views/includes/template.php"
         ];
         $this->genererPage($data_page);
+    }
+
+     // Faire des vérifcations si les informations données ne sont pas déjà dans la bdd
+     public function validation_creerArticle($titre,$contenu,$date_create){
+        if($this->utilisateurManager->ve($login)){
+            
+            if($this->utilisateurManager->bdCreerCompte($login,$passwordCrypte,$mail,$clef,"profils/profil.png","utilisateur")){
+                $this->sendMailValidation($login,$mail,$clef);
+                Toolbox::ajouterMessageAlerte("Le compte a été créé, Un mail de validation vous a été envoyé !", Toolbox::COULEUR_VERTE);
+                header("Location: ".URL."login");
+            } else {
+                Toolbox::ajouterMessageAlerte("Erreur lors de la création du compte, recommencez !", Toolbox::COULEUR_ROUGE);
+                header("Location: ".URL."creerCompte");
+            }
+        } else {
+            Toolbox::ajouterMessageAlerte("Le login est déjà utilisé !", Toolbox::COULEUR_ROUGE);
+            header("Location: ".URL."creerCompte");
+        }
     }
 
 
