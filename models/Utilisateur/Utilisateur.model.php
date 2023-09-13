@@ -122,4 +122,6 @@ class UtilisateurManager extends MainManager{
         $stmt->closeCursor();
         return $resultat['image'];
     }
+
+    
 }
