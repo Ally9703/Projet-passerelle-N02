@@ -47,7 +47,7 @@ class AdministrateurController extends MainController{
 
      // Faire des vérifcations si les informations données ne sont pas déjà dans la bdd
      public function validation_creerArticle($titre,$contenu,$date_create){
-        if($this->utilisateurManager->verifLoginDisponible($login)){
+        if($this->utilisateurManager->ve($login)){
             
             if($this->utilisateurManager->bdCreerCompte($login,$passwordCrypte,$mail,$clef,"profils/profil.png","utilisateur")){
                 $this->sendMailValidation($login,$mail,$clef);

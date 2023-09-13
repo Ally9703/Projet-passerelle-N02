@@ -24,6 +24,8 @@ class AdministrateurManager extends MainManager{
 
     // Gestion Articles
     public function bdCreerArticle($titre, $contenu, $date_create){
+
+        $req = "SELECT * FROM articles";
         $req = "INSERT INTO articles (titre, contenu, date_create)
         VALUES (:titre, :contenu, :date_create)";
         $stmt = $this->getBdd()->prepare($req);
@@ -34,9 +36,10 @@ class AdministrateurManager extends MainManager{
         // $stmt->bindValue(":image",$image,PDO::PARAM_STR);
         // $stmt->bindValue(":role",$role,PDO::PARAM_STR);
         $stmt->execute();
-        $estModifier = ($stmt->rowCount() > 0);
+        $estAfficher = ($stmt->rowCount() > 0);
         $stmt->closeCursor();
-        return $estModifier;
+        return $estAfficher;
+
     }
 
 
